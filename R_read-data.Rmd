@@ -121,6 +121,9 @@ fev_file <- read_file(here("Week5_Repo.Rproj"))
 
 ```{r}
 # Add your code here!
+fev_data <- read_csv("data/fev.csv", show_col_types = FALSE) %>%
+  filter(sex == 1) %>%
+  select(fev, age)
 ```
 
 Look at the top few rows of the data:
@@ -151,19 +154,22 @@ There is a text file in your dataset so you can practice: psa.txt
 ```{r}
 # Add your code here!
 psa_data <- read.table(here("data/psa.txt"), header = TRUE)
+summary(psa_data)
 ```
 
 --> Have a look at the "Useful arguments" section of the data import cheat sheet. 
 Use a few of them when you read in fev.csv and look at the data, is that what you expected?
 
 ```{r}
-# Add your code here!
+fev_data <- read_csv("data/fev.csv", col_types = cols(fev = col_double(), height = col_double()), na = "NA")
+head(fev_data)
 ```
 
 --> Apply the summary function to a tibble. What does it do?
 
 ```{r}
-# Add your code here!
+fev_data <- read_csv("data/fev.csv", show_col_types = FALSE)
+summary(fev_data)
 ```
 
 
